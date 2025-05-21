@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>シフト一覧</title></head>
+<body>
+  <h2>{{ name }} さんの提出シフト一覧</h2>
+
+  {% if shifts %}
+    <ul>
+      {% for shift in shifts %}
+        <li>
+          {{ shift.date }}：{{ shift.start }}〜{{ shift.end }}
+          <a href="/edit_shift/{{ shift.id }}">編集</a>
+          <a href="/delete_shift/{{ shift.id }}">削除</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>まだシフトは提出されていません。</p>
+  {% endif %}
+
+  <p><a href="/dashboard">ダッシュボードに戻る</a></p>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>全シフト一覧</title></head>
+<body>
+  <h2>全ユーザーのシフト一覧</h2>
+
+  {% if shifts %}
+    <ul>
+      {% for shift in shifts %}
+        <li>{{ shift.user }}：{{ shift.date }} {{ shift.start }}〜{{ shift.end }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>まだ提出されたシフトはありません。</p>
+  {% endif %}
+
+  <p><a href="/dashboard">ダッシュボードに戻る</a></p>
+</body>
+</html>

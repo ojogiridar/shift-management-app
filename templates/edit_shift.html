@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>シフト編集</title></head>
+<body>
+  <h2>シフト編集</h2>
+  <form method="POST">
+    日付: <input type="date" name="date" value="{{ shift.date }}"><br>
+    開始時刻: <input type="time" name="start" value="{{ shift.start }}"><br>
+    終了時刻: <input type="time" name="end" value="{{ shift.end }}"><br>
+    <input type="submit" value="更新">
+  </form>
+  <p><a href="/my_shifts">← 一覧に戻る</a></p>
+</body>
+</html>

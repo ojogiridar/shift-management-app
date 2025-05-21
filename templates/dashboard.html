@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>ダッシュボード</title></head>
+<body>
+  <h2>こんにちは、{{ name }}さん（{{ role }}）</h2>
+
+  {% if role == 'staff' %}
+    <p><a href="/submit_shift">シフトを提出する</a></p>
+    <p><a href="/my_shifts">提出したシフトを見る</a></p>
+  {% endif %}
+
+  {% if role == 'manager' %}
+    <p><a href="/all_shifts">全シフト一覧を見る</a></p>
+  {% endif %}
+
+</body>
+</html>
