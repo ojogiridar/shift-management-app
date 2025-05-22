@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, url_for
+from flask import Flask, render_template, request, redirect, session, url_for, flash
 import sqlite3
 from pathlib import Path
 
@@ -62,14 +62,14 @@ def submit_shift():
         start = request.form['start']
         end = request.form['end']
 
-        # データベースに保存
         with sqlite3.connect(DB_PATH) as conn:
             conn.execute(
                 'INSERT INTO shifts (user, date, start, end) VALUES (?, ?, ?, ?)',
                 (session['username'], date, start, end)
             )
 
-        return f"提出完了！{date} {start}〜{end} を保存しました"
+        flash("シフトを提出しました！")
+        return redirect(url_for('dashboard'))
 
     return render_template('submit_shift.html')
 
